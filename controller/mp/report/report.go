@@ -29,6 +29,10 @@ func IsFave(c *gin.Context) {
 	report.IsFave(c)
 }
 
-func HistoryStore(c *gin.Context) {
-	report.HistoryStore(c)
+func ViewHistoryStore(c *gin.Context) {
+	report.ViewHistory(c)
+}
+
+func ViewHistory(c *gin.Context) {
+	report.ViewHistory(c)
 }

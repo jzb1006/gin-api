@@ -16,7 +16,7 @@ func ReportRouter(c *gin.RouterGroup) {
 			UserAuthApi.GET(":id/favorite", report.Fave)
 			UserAuthApi.DELETE(":id/favorite", report.UnFave)
 			UserAuthApi.GET(":id/is-favorite", report.IsFave)
-			UserAuthApi.POST(":id/view", report.HistoryStore)
+			UserAuthApi.POST(":id/view", report.ViewHistoryStore)
 		}
 	}
 }

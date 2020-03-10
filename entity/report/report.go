@@ -85,13 +85,27 @@ func IsFave(c *gin.Context) {
 	res.Response(http.StatusCreated, IsFave)
 }
 
-func HistoryStore(c *gin.Context)  {
+func ViewHistoryStore(c *gin.Context) {
 	res := util.Gin{Ctx: c}
-	formDate, b := new(report.ReportRequest).Validator(c);if b {
+	formDate, b := new(report.ReportRequest).Validator(c)
+	if b {
 		return
 	}
-	fmt.Println(formDate)
-	//auth := jwt.GetAuthInfo(c)
-	//err := new(model.ReportHistorie).Store(auth.Model.ID,1)
+	auth := jwt.GetAuthInfo(c)
+	if err := new(model.ReportHistories).Store(auth.Model.ID, formDate.Id); err != nil {
+		res.Response(http.StatusBadRequest, err.Error())
+		return
+	}
 	res.Response(http.StatusCreated, "")
+}
+
+func ViewHistory(c *gin.Context) {
+	res := util.Gin{Ctx: c}
+	auth := jwt.GetAuthInfo(c)
+	date, meta, err := new(model.ReportHistories).Index(c, auth.Model.ID)
+	if err != nil {
+		res.Response(http.StatusBadRequest, err.Error())
+		return
+	}
+	res.ResponsePaging(http.StatusCreated, date, meta)
 }

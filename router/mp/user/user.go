@@ -19,5 +19,6 @@ func UserRouter(r *gin.RouterGroup) {
 		UserAuthApi.GET("events/favorite", event.FaveHistory)
 		UserAuthApi.GET("events/enters", event.EnterHistory)
 		UserAuthApi.GET("reports/favorite", report.FaveHistory)
+		UserAuthApi.GET("reports/view", report.ViewHistory)
 	}
 }
