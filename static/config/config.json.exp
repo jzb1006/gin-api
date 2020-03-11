@@ -7,7 +7,7 @@
     "username": "root",
     "password": "",
     "path": "0.0.0.0:3306",
-    "dbname": "sp_v2",
+    "dbname": "test",
     "config": "charset=utf8&parseTime=True&loc=Local"
   },
   "log": {
@@ -24,8 +24,8 @@
     "port": 465
   },
   "wechatMP": {
-    "appId": "wx9061d3326fc6d981",
-    "appsSecret": "875c38de29bd7ce0da0a2819788c6e37"
+    "appId": "test",
+    "appsSecret": "test"
   },
   "Token": {
     "expireTime": 10
